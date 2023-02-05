@@ -11,6 +11,8 @@ namespace fraction_work
         private int lob;
         private int hor;
 
+        //get and set
+
         public int Lob
         {
             get
@@ -54,6 +56,8 @@ namespace fraction_work
             }
         }
 
+        // constructor
+
         public fraction(int _lob, int _hor)
         {
             lob = _lob;
@@ -62,5 +66,53 @@ namespace fraction_work
                 hor = _hor;
             }
         }
+        public fraction()
+        { }
+
+        // Operator Overloading
+
+        public static string operator + (fraction a, fraction b)
+        {
+            fraction q = new fraction();
+            q.Hor = a.Hor * b.Hor;
+            q.Lob = (a.Lob * b.Hor) + (b.Lob * a.Hor);
+            string s = q.getfrac();
+            return s;
+        }
+
+        public static string operator - (fraction a, fraction b)
+        {
+            fraction q = new fraction();
+            q.Hor = a.Hor * b.Hor;
+            q.Lob = (a.Lob * b.Hor) - (b.Lob * a.Hor);
+            string s = q.getfrac();
+            return s;
+        }
+
+        public static string operator * (fraction a, fraction b)
+        {
+            fraction q = new fraction();
+            q.Hor = a.Hor * b.Hor;
+            q.Lob = a.Hor * b.Hor;
+            string s = q.getfrac();
+            return s;
+        }
+
+        public static string operator / (fraction a, fraction b)
+        {
+            fraction q = new fraction();
+            q.Hor = a.Hor * b.Lob;
+            q.Lob = a.Lob * b.Hor;
+            if(q.Hor != 0)
+            {
+                string s = q.getfrac();
+                return s;
+            }
+            else
+            {
+                return "ERROR";
+            }
+        }
+
     }
 }
