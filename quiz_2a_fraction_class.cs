@@ -93,7 +93,7 @@ namespace fraction_work
         {
             fraction q = new fraction();
             q.Hor = a.Hor * b.Hor;
-            q.Lob = a.Hor * b.Hor;
+            q.Lob = a.Lob * b.Lob;
             string s = q.getfrac();
             return s;
         }
